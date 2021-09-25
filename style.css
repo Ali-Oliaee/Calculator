@@ -1,0 +1,73 @@
+* , *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #ecf0f3;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    outline: none;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.calc {
+    background-color: #ecf0f3;
+    border-radius: 30px;
+    padding: 15px;
+    box-shadow: inset 5px 5px 12px #fff,
+                      5px 5px 12px rgba(0, 0, 0, .16);
+    display: grid;
+    grid-template-columns: repeat(4,68px);
+}
+.output {
+    grid-column: span 4;
+    height: 80px;
+    width: 260px;
+    background-color: #ecf0f3;
+    box-shadow: inset -5px -5px 12px #fff,
+                inset 5px 5px 12px rgba(0, 0, 0, .16);
+    border-radius: 30px;
+    color: rgb(70, 70, 70);
+    text-align: end;
+    margin: 20px auto;
+    padding: 15px 20px;
+}
+.pre-output {
+    font-size: 1rem;
+    font-weight: 400;
+}
+.current-output {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+button {
+    height: 48px;
+    width: 48px;
+    background-color: #ecf0f3;
+    box-shadow: -5px -5px 12px #fff,
+                5px 5px 12px rgba(0, 0, 0, .16);
+    border: 0;
+    border-radius: 50%;
+    margin: 8px;
+    font-size: larger;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, .7);
+    color: #fff;
+}
+
+.all-clear {
+    grid-column: span 2;
+}
+.all-clear, .equal {
+    width: 117px;
+    border-radius: 40px;
+}
