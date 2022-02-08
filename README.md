@@ -1,2 +1,5 @@
 # Calculator
-a simple calculator with oop javaScript and neumorphism design
+simple calculator with oop javascript and neumorphism design
+
+
+![Signup page](/screenshot.png?raw=true)
