@@ -17,9 +17,28 @@ class Calculator {
     }
 
     appendNumber(number) {
-        if (this.currentNumber.includes('.') && number == '.') return;
+        if (this.currentNumber.toString().includes('.') && number == '.') return;
         this.currentNumber += number;
 
+    }
+
+    calculateTraingle(operation) {
+        let result;
+        switch(operation){
+            case 'sin':
+                result = Math.sin(+this.currentNumber)
+                break;
+            case 'cos':
+                result = Math.cos(+this.currentNumber)
+                break;
+            case 'tan':
+                result = Math.tan(+this.currentNumber)
+                break;
+            
+        }
+        this.currentNumber = result;
+        this.preNumber = '';
+        this.operation = undefined;
     }
 
     chooseOperation(operation) {
@@ -30,7 +49,6 @@ class Calculator {
 
     comput() {
         let result;
-        //plus sign is instead for ParseInt() and ParseFloat
         switch (this.operation) {
             case '+':
                 result = +this.preNumber + +this.currentNumber;
@@ -43,6 +61,9 @@ class Calculator {
                 break;
             case '/':
                 result = +this.preNumber / +this.currentNumber;
+                break;
+            case '%':
+                result = +this.preNumber % +this.currentNumber;
                 break;
         }
         this.currentNumber = result;
@@ -65,6 +86,7 @@ const clearBtn = document.querySelector('[data-all-clear]');
 const deleteBtn = document.querySelector('[data-delete]');
 const preOutputDisplay = document.querySelector('[data-pre-operand]');
 const currentOutputDisplay = document.querySelector('[data-current-operand]');
+const trangleBtns = document.querySelectorAll('[data-traingle]');
 
 let calculator = new Calculator(preOutputDisplay, currentOutputDisplay);
 calculator.updateDisplay();
@@ -76,6 +98,14 @@ numberBtns.forEach(btn => btn.addEventListener(
         calculator.updateDisplay();
     }
 ))
+
+trangleBtns.forEach(btn => btn.addEventListener(
+    'click', () => {
+        calculator.calculateTraingle(btn.innerText);
+        calculator.updateDisplay()
+    }
+))
+
 
 operationBtns.forEach(btn => btn.addEventListener(
     'click', () => {
